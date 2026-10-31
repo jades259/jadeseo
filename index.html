@@ -27,16 +27,14 @@ nav ul{list-style:none;display:flex;gap:22px;margin:0;padding:0}
 nav a{text-decoration:none;color:var(--muted);font-weight:600;font-size:.95rem}
 nav a:hover{color:var(--navy)}
 
-/* hero: full-bleed photo, name block overlapping its lower left */
-.hero{position:relative;background:var(--navy-deep);color:#fff}
-.hero .photo{height:min(78vh,760px);min-height:420px}
-.hero .photo img{width:100%;height:100%;object-fit:cover;object-position:50% 18%;display:block}
-.hero .text{max-width:1400px;margin:0 auto;padding:0 clamp(20px,4vw,56px)}
-.hero .text>div.box{max-width:760px;padding:40px 0 8px}
-.hero .school{color:#e3c9ce;font-size:1rem;margin-bottom:14px}
-.hero h1{font-size:clamp(3rem,6vw,5rem);color:#fff;letter-spacing:-.01em;margin-bottom:.3em}
-.hero p{font-size:clamp(1.05rem,1.4vw,1.25rem);max-width:32em;color:#f1e6e5;line-height:1.5}
-.hero .pad{height:48px}
+/* hero: one compact band, portrait on the left, name and intro beside it */
+.hero{background:var(--navy-deep);color:#fff}
+.hero .inner{max-width:1400px;margin:0 auto;padding:44px clamp(20px,4vw,56px);display:grid;grid-template-columns:260px minmax(0,1fr);gap:clamp(28px,4vw,56px);align-items:center}
+.hero .photo{aspect-ratio:520/620;overflow:hidden;border-radius:3px}
+.hero .photo img{width:100%;height:100%;object-fit:cover;display:block}
+.hero .school{color:#e3c9ce;font-size:1rem;margin-bottom:8px}
+.hero h1{font-size:clamp(2.6rem,4.6vw,4rem);color:#fff;letter-spacing:-.01em;margin-bottom:.25em}
+.hero p{font-size:clamp(1.05rem,1.3vw,1.2rem);max-width:40em;color:#f1e6e5;line-height:1.55;margin-bottom:.6em}
 .btn{display:inline-block;background:#fff;color:var(--navy-deep);text-decoration:none;padding:12px 20px;border-radius:4px;font-weight:700;margin:12px 10px 0 0}
 .btn.line{background:transparent;color:#fff;border:2px solid #fff}
 section .btn{background:var(--navy);color:#fff}
@@ -86,7 +84,7 @@ table.contact{border-collapse:collapse;font-size:1.1rem}
 table.contact td{padding:8px 28px 8px 0;vertical-align:top}
 footer{padding:32px 0;color:var(--muted);font-size:.95rem}
 @media (max-width:900px){
-  .hero .photo{height:70vw}
+  .hero .inner{grid-template-columns:1fr;padding-top:28px;padding-bottom:32px}.hero .photo{width:180px}
   .stats .wrap{grid-template-columns:1fr 1fr}.stat{border-right:0;padding:20px 0}.stat+.stat{padding-left:0}
   .head,.cols,.three,.honors{grid-template-columns:1fr}.head{gap:12px}.cols{gap:32px}
   .timeline li{grid-template-columns:1fr;gap:2px}
@@ -109,19 +107,16 @@ footer{padding:32px 0;color:var(--muted);font-size:.95rem}
   </ul>
 </div></nav>
 
-<header class="hero" id="top">
-  <div class="photo"><img src="assets/jade-trim.jpg" alt="Jade Seo at his Tri-M Music Honor Society induction, Fort Lee High School"></div>
-  <div class="text"><div class="box">
+<header class="hero" id="top"><div class="inner">
+  <div class="photo"><img src="assets/jade-portrait.jpg" alt="Jade Seo holding his Tri-M Music Honor Society certificate, Fort Lee High School"></div>
+  <div>
     <div class="school">Fort Lee High School, Class of 2027</div>
     <h1>Jade Seo</h1>
     <p>I study the business side of sport: who pays for the stadium, what a school owes its athletes, and how a plan gets from an email to a signed receipt. Sport management applicant, cofounder of the Bergen County Youth Assembly, varsity golf captain.</p>
-    <div>
-      <a class="btn" href="#research">Read the research</a>
-      <a class="btn line" href="https://youtu.be/WSLgC-AXG2g" target="_blank" rel="noopener">Watch Benched</a>
-    </div>
-  </div></div>
-  <div class="pad"></div>
-</header>
+    <a class="btn" href="#research">Read the research</a>
+    <a class="btn line" href="https://youtu.be/e59UKk2K4_g" target="_blank" rel="noopener">Watch Benched</a>
+  </div>
+</div></header>
 
 <div class="stats"><div class="wrap">
   <div class="stat"><b>3</b><span>Division I athletes followed in Benched, the documentary I researched</span></div>
@@ -160,7 +155,7 @@ footer{padding:32px 0;color:var(--muted);font-size:.95rem}
   </div>
   <div class="cols">
     <div>
-      <iframe class="video" src="https://www.youtube.com/embed/WSLgC-AXG2g" title="Benched: What Happens to the College Athletes Who Never Go Pro" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+      <iframe class="video" src="https://www.youtube.com/embed/e59UKk2K4_g" title="Benched: What Happens to the College Athletes Who Never Go Pro" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe>
       <p class="small" style="margin-top:10px">Released October 30, 2026. Anna Ross (Vanderbilt and Michigan women’s tennis), Julian Bell (Clemson women’s lacrosse), Spencer Joyner (Boston University men’s basketball).</p>
     </div>
     <div class="text">
@@ -262,9 +257,9 @@ footer{padding:32px 0;color:var(--muted);font-size:.95rem}
 <section class="block" id="contact"><div class="wrap">
   <div class="head"><h2>Contact</h2></div>
   <table class="contact">
-    <tr><td><b>Email</b></td><td><a href="mailto:Jayseo0925@gmail.com">Jayseo0925@gmail.com</a></td></tr>
+    <tr><td><b>Email</b></td><td><a href="mailto:jayseo0925@gmail.com">jayseo0925@gmail.com</a></td></tr>
     <tr><td><b>Résumé</b></td><td><a href="assets/Jade_Seo_Resume.pdf" target="_blank" rel="noopener">Download (PDF)</a></td></tr>
-    <tr><td><b>Benched</b></td><td><a href="https://youtu.be/WSLgC-AXG2g" target="_blank" rel="noopener">youtu.be/WSLgC-AXG2g</a></td></tr>
+    <tr><td><b>Benched</b></td><td><a href="https://youtu.be/e59UKk2K4_g" target="_blank" rel="noopener">youtu.be/e59UKk2K4_g</a></td></tr>
     <tr><td><b>BCYA</b></td><td><a href="https://bcyouthassembly.org" target="_blank" rel="noopener">bcyouthassembly.org</a></td></tr>
   </table>
 </div></section>
