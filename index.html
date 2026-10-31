@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jade Seo</title>
+<meta name="description" content="Jade Seo, Fort Lee High School Class of 2027. Sport management, research on the economics of mega sporting events, the Benched documentary, and the Bergen County Youth Assembly.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1b2a21;--turf:#1f5f3b;--turf-deep:#143f28;--clay:#d9742b;--sand:#f6f1e7;--paper:#fffdf8;--rule:#d8d2c4;--muted:#5a6660;}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Source Sans 3",system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6;font-size:17px}
+h1,h2,h3{font-family:"Libre Baskerville",Georgia,serif;line-height:1.2;margin:0 0 .5em}
+h2{font-size:1.9rem}
+h3{font-size:1.15rem}
+a{color:var(--turf)}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+nav{position:sticky;top:0;background:rgba(255,253,248,.95);backdrop-filter:blur(6px);border-bottom:1px solid var(--rule);z-index:10}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:58px}
+nav .brand{font-family:"Libre Baskerville",serif;font-weight:700;text-decoration:none;color:var(--ink)}
+nav ul{list-style:none;display:flex;gap:18px;margin:0;padding:0}
+nav a{text-decoration:none;color:var(--muted);font-weight:600;font-size:.95rem}
+nav a:hover{color:var(--turf)}
+.hero{background:var(--turf-deep);color:#fff;padding:64px 0 56px}
+.hero .wrap{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center}
+.hero h1{font-size:3rem;color:#fff}
+.hero .kicker{color:#f2c58f;text-transform:uppercase;letter-spacing:.14em;font-size:.8rem;font-weight:700;margin-bottom:12px}
+.hero p{font-size:1.15rem;max-width:34em;color:#e8efe9}
+.hero .photo{aspect-ratio:4/5;background:#2a7a4e;border-radius:10px;display:flex;align-items:center;justify-content:center;color:#cfe3d6;font-size:.95rem;text-align:center;padding:20px;overflow:hidden}
+.hero .photo img{width:100%;height:100%;object-fit:cover;display:block}
+.stats{background:var(--clay);color:#fff}
+.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding:22px 20px}
+.stat b{display:block;font-family:"Libre Baskerville",serif;font-size:1.7rem}
+.stat span{font-size:.9rem;opacity:.95}
+section.block{padding:56px 0;border-bottom:1px solid var(--rule)}
+section.alt{background:var(--sand)}
+.lead{font-size:1.2rem;max-width:40em}
+.two{display:grid;grid-template-columns:1.2fr 1fr;gap:36px;align-items:start}
+.card{background:#fff;border:1px solid var(--rule);border-radius:10px;padding:20px 22px}
+.card h3{margin-top:0}
+.card ul{padding-left:1.1em;margin:0}
+.card li{margin:0 0 .45em}
+.timeline{list-style:none;padding:0;margin:14px 0 0;border-left:3px solid var(--turf);}
+.timeline li{padding:0 0 12px 16px;position:relative}
+.timeline li::before{content:"";position:absolute;left:-9px;top:8px;width:11px;height:11px;border-radius:50%;background:var(--clay);border:2px solid #fff}
+.timeline b{color:var(--turf-deep)}
+figure{margin:0}
+figure .ph{aspect-ratio:3/2;background:#e6e0d3;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#7a7466;font-size:.9rem;text-align:center;padding:16px;overflow:hidden}
+figure .ph img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+figure .ph.tall,figure .ph.wide{padding:0}
+figure .ph.tall{aspect-ratio:3/4}
+figure .ph.wide{aspect-ratio:1200/940}
+figure .ph.tall img,figure .ph.wide img{object-position:center}
+.grid2.pair{gap:10px;grid-template-columns:1fr 1fr}
+figcaption{font-size:.9rem;color:var(--muted);margin-top:6px}
+.btn{display:inline-block;background:var(--turf);color:#fff;text-decoration:none;padding:10px 16px;border-radius:6px;font-weight:600;margin:10px 8px 0 0}
+.btn.ghost{background:transparent;color:var(--turf);border:2px solid var(--turf)}
+.hero .btn.ghost{color:#fff;border-color:#f2c58f}
+.hero .btn{background:var(--clay)}
+.video{aspect-ratio:16/9;width:100%;border:0;border-radius:10px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.honor{background:#fff;border-left:5px solid var(--clay);padding:14px 16px;border-radius:0 8px 8px 0;border-top:1px solid var(--rule);border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.honor b{display:block;font-family:"Libre Baskerville",serif}
+.honor span{font-size:.92rem;color:var(--muted)}
+.small{font-size:.95rem;color:var(--muted)}
+table.contact{border-collapse:collapse}
+table.contact td{padding:6px 18px 6px 0;vertical-align:top}
+footer{padding:30px 0;color:var(--muted);font-size:.9rem}
+@media (max-width:760px){.hero .wrap,.two,.grid3,.grid2{grid-template-columns:1fr}.stats .wrap{grid-template-columns:1fr 1fr}.hero h1{font-size:2.2rem}nav ul{display:none}}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="brand" href="#top">Jade Seo</a>
+  <ul>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#benched">Benched</a></li>
+    <li><a href="#bcya">BCYA</a></li>
+    <li><a href="#voy">VOY</a></li>
+    <li><a href="#finance">Finance</a></li>
+    <li><a href="#honors">Honors</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</div></nav>
+
+<header class="hero" id="top"><div class="wrap">
+  <div>
+    <div class="kicker">Fort Lee High School · Class of 2027</div>
+    <h1>Jade Seo</h1>
+    <p>I study the business side of sport: who pays for the stadium, what a school owes its athletes, and how a plan gets from an email to a signed receipt. Sport management applicant, cofounder of the Bergen County Youth Assembly, varsity golf captain.</p>
+    <a class="btn" href="#research">Read the research</a>
+    <a class="btn ghost" href="https://youtu.be/WSLgC-AXG2g" target="_blank" rel="noopener">Watch Benched</a>
+  </div>
+  <div class="photo"><img src="assets/jade-trim.jpg" alt="Jade Seo at his Tri-M Music Honor Society induction, Fort Lee High School"></div>
+</div></header>
+
+<div class="stats"><div class="wrap">
+  <div class="stat"><b>3</b><span>Division I athletes followed in Benched, the YGLE documentary I researched</span></div>
+  <div class="stat"><b>6</b><span>Bergen County high schools whose students founded BCYA</span></div>
+  <div class="stat"><b>103</b><span>new garments delivered to Lindbergh Elementary through the Community Needs Exchange</span></div>
+  <div class="stat"><b>180</b><span>3D-printed stress tools donated to Fort Lee High School through the Finals Relief Project</span></div>
+</div></div>
+
+<section class="block" id="research"><div class="wrap">
+  <h2>Does hosting the Olympics pay off?</h2>
+  <div class="two">
+    <div>
+      <p class="lead">I started this paper in eleventh grade sure that the answer was yes. Then I compared what host cities promised to spend with what they actually spent.</p>
+      <p>The paper looks at three things: projected versus actual budgets for past Olympic and World Cup hosts, what happens to the venues after the crowds leave, and the opportunity cost of the public money involved. A biostatistician at Johns Hopkins Hospital reviewed the draft and made me say exactly what my numbers could and could not prove. I am the sole author.</p>
+      <p>The question I ended up with is the one I want to keep asking in college: not whether the games bring money in, but what else that money could have built.</p>
+      <a class="btn" href="assets/mega-events-paper.pdf" target="_blank" rel="noopener">Read the paper (PDF)</a>
+    </div>
+    <div class="card">
+      <h3>What the paper does</h3>
+      <ul>
+        <li>Compares projected and actual host budgets</li>
+        <li>Tracks venue use after the event</li>
+        <li>Weighs the opportunity cost of public spending</li>
+        <li>Sole author, 2025 to 2026; reviewed by a Johns Hopkins Hospital biostatistician</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<section class="block alt" id="benched"><div class="wrap">
+  <h2>Benched: what happens to the college athletes who never go pro</h2>
+  <div class="two">
+    <div>
+      <p class="lead">A student documentary by Young Global Leaders of the East. It follows three former Division I athletes through the moment the dream of going pro ended.</p>
+      <p>I am the film’s Research and Policy Lead. I researched athletic scholarship structures, academic clustering (the way athletes get steered into certain majors), athlete welfare policy, and which schools already run programs for athletes after sport. I am drafting the policy brief that comes with the film: what every school should owe the people who play for it.</p>
+      <p>I have played varsity golf for four years and captain the team this season. I am not going pro either, which is part of why this question stayed with me.</p>
+    </div>
+    <div>
+      <iframe class="video" src="https://www.youtube.com/embed/WSLgC-AXG2g" title="Benched: What Happens to the College Athletes Who Never Go Pro" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+      <p class="small">Released October 30, 2026. Anna Ross (Vanderbilt and Michigan women’s tennis), Julian Bell (Clemson women’s lacrosse), Spencer Joyner (Boston University men’s basketball).</p>
+    </div>
+  </div>
+</div></section>
+
+<section class="block" id="bcya"><div class="wrap">
+  <h2>Bergen County Youth Assembly</h2>
+  <p class="lead">Six students from six Bergen County high schools built a countywide youth network. I am a cofounder, I direct the Community Needs Exchange, and I write the letters that go out under BCYA’s name.</p>
+  <div class="two">
+    <div>
+      <ul class="timeline">
+        <li><b>November 2025</b> · the six of us start working together</li>
+        <li><b>July 11, 2026</b> · BCYA is formally organized and introduced to Bergen County</li>
+        <li><b>August 31, 2026</b> · we present the plan to the Office of the Bergen County Executive</li>
+        <li><b>September 21, 2026</b> · 103 pieces of new children’s clothing, donated by Korean companies, delivered to Lindbergh Elementary School in six boxes; I arranged it by email, built a Korean size conversion chart, and brought back a signed receipt</li>
+        <li><b>October 9, 2026</b> · I write to the New Jersey Commission for the Blind and Visually Impaired about a founder’s tactile graph plates for blind math students</li>
+        <li><b>October 16, 2026</b> · the county forwards our proposal to the Interim Executive County Superintendent</li>
+        <li><b>October 28, 2026</b> · the Commission meeting in Newark; I record their design requests and carry them back to the designer</li>
+      </ul>
+      <a class="btn ghost" href="https://bcyouthassembly.org" target="_blank" rel="noopener">bcyouthassembly.org</a>
+    </div>
+    <div>
+      <figure>
+        <div class="grid2 pair">
+          <div class="ph tall"><img src="assets/bcya-lindbergh.jpg" alt="Jade Seo carrying two BCYA clothing donation boxes labeled for Lindbergh Elementary School" loading="lazy"></div>
+          <div class="ph tall"><img src="assets/bcya-lindbergh-boxes.jpg" alt="Six BCYA clothing donation boxes for Lindbergh Elementary School, stacked after delivery" loading="lazy"></div>
+        </div>
+        <figcaption>September 21, 2026, Palisades Park: carrying the boxes in, and all six after delivery to Lindbergh Elementary.</figcaption>
+      </figure>
+      <br>
+      <figure><div class="ph wide"><img src="assets/bcya-cbvi.jpg" alt="Jade Seo with BCYA founders and staff of the New Jersey Commission for the Blind and Visually Impaired" loading="lazy"></div><figcaption>October 28, 2026, Newark: after the meeting at the New Jersey Commission for the Blind and Visually Impaired. I am second from left.</figcaption></figure>
+    </div>
+  </div>
+</div></section>
+
+<section class="block alt" id="voy"><div class="wrap">
+  <h2>Voices of the Young</h2>
+  <div class="two">
+    <div>
+      <p class="lead">A student-run youth mental health organization. I am Director of Operations and Events, which means I handle the part where a plan has to clear a school district.</p>
+      <p>For the Finals Relief Project, I proposed the donation to the school counselor, worked with the administration, and completed the district’s Donation Approval Form; with VOY’s founder, we donated 180 3D-printed stress relief tools to Fort Lee High School, juniors first.</p>
+      <p>I also serve on <a href="https://mo-soop.glide.page" target="_blank" rel="noopener">Mo Soop</a>, VOY’s anonymous peer support app, as a listener, moderator, and wellness creator. Because I am not a professional, I completed Psychological First Aid and Skills for Psychological Recovery with the National Child Traumatic Stress Network and a Stress Management course at Bergen Community College before taking the role.</p>
+    </div>
+    <div class="grid2">
+      <div class="card"><h3>YGLE</h3><ul><li>Vice President since 2023</li><li>Event logistics and member engagement; Global Leadership Forum</li><li>Help distribute THE WAIT, YGLE’s bilingual medical card for Korean American seniors (300 cards donated in NJ and NY)</li></ul></div>
+      <div class="card"><h3>Service</h3><ul><li>CDHW: 200+ hours sorting and delivering clothing for pediatric patients</li><li>Walk Alongside and KPAC Reading Buddy: weekly tutoring since ninth grade</li><li>Englewood Hospital School Year Volunteer, 2025 to 2026</li><li>Wholeistic Healing: security, tech, and logistics; LiNK North Jersey Rescue Team</li></ul></div>
+    </div>
+  </div>
+  <div class="grid2" style="margin-top:28px">
+    <figure><div class="ph"><img src="assets/wholeistic-onpoint.jpg" alt="Wholeistic Healing members at OnPoint NYC, June 17, 2026"></div><figcaption>Wholeistic Healing at OnPoint NYC, June 17, 2026, where we packaged hundreds of harm reduction kits.</figcaption></figure>
+  </div>
+</div></section>
+
+<section class="block" id="finance"><div class="wrap">
+  <h2>Finance and golf</h2>
+  <div class="grid3">
+    <div class="card"><h3>Academy of Finance</h3><p>Three years in Fort Lee High School’s selective finance program: accounting, advanced finance, business economics, financial services, and Sports and Entertainment Management.</p></div>
+    <div class="card"><h3>Klichs, LLP</h3><p>Five-week paid internship at an accounting firm, summer 2026: QuickBooks bookkeeping for client companies and the audit process for client tax records.</p></div>
+    <div class="card"><h3>Varsity golf</h3><p>Four seasons; captain in 2026 to 2027, chosen by coaches and teammates. First Team All-League in 2024 and 2026, Second Team in 2025.</p></div>
+  </div>
+</div></section>
+
+<section class="block alt" id="honors"><div class="wrap">
+  <h2>Honors</h2>
+  <div class="grid2">
+    <div class="honor"><b>Scholastic Art &amp; Writing Awards, Gold Key</b><span>Critical Essay, Regional, 2026: “The Algorithm is the New Dictator” · <a href="assets/scholastic-gold-key.pdf" target="_blank" rel="noopener">certificate</a></span></div>
+    <div class="honor"><b>Scholastic Art &amp; Writing Awards, Honorable Mention</b><span>Critical Essay, Regional, 2026: “The Attention Crisis” · <a href="assets/scholastic-honorable-mention.pdf" target="_blank" rel="noopener">certificate</a></span></div>
+    <div class="honor"><b>First Team All-League, Golf</b><span>2024 and 2026; Second Team, 2025</span></div>
+    <div class="honor"><b>Tri-M Music Honor Society</b><span>Inductee, 2025; cellist, Honors Chamber Ensemble</span></div>
+  </div>
+</div></section>
+
+<section class="block" id="contact"><div class="wrap">
+  <h2>Contact</h2>
+  <table class="contact">
+    <tr><td><b>Email</b></td><td><a href="mailto:Jayseo0925@gmail.com">Jayseo0925@gmail.com</a></td></tr>
+    <tr><td><b>Résumé</b></td><td><a href="assets/Jade_Seo_Resume.pdf" target="_blank" rel="noopener">Download (PDF)</a></td></tr>
+    <tr><td><b>Benched</b></td><td><a href="https://youtu.be/WSLgC-AXG2g" target="_blank" rel="noopener">youtu.be/WSLgC-AXG2g</a></td></tr>
+    <tr><td><b>BCYA</b></td><td><a href="https://bcyouthassembly.org" target="_blank" rel="noopener">bcyouthassembly.org</a></td></tr>
+  </table>
+</div></section>
+
+<footer><div class="wrap">Jade Seo · Fort Lee, New Jersey · Last updated October 2026</div></footer>
+</body>
+</html>
