@@ -8,86 +8,138 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#2a2420;--navy:#6e1f2b;--navy-deep:#4a1119;--mist:#f3efe8;--rule:#d9d2c6;--muted:#6b625a;--amber:#6e1f2b;--paper:#fbf9f5}
+:root{
+  --ink:#251c1a; --muted:#6a5d57; --ivory:#fbf8f2; --rule:#e2d8cc;
+  --wine:#5a1622; --wine-deep:#40101a; --wine-soft:#8a3a47;
+  --green:#1d3b33; --green-soft:#d5e2da; --sage:#e9eee7;
+  --brass:#c9a464; --brass-deep:#8a6527; --blush:#f6ebe6;
+}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-body{margin:0;font-family:"Source Sans 3",system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6;font-size:18px}
-h1,h2,h3{font-family:"Libre Baskerville",Georgia,serif;line-height:1.15;margin:0}
-h2{font-size:clamp(2rem,3.4vw,3rem);margin-bottom:.35em}
-h3{font-size:1.2rem;margin-bottom:.4em}
+body{margin:0;font-family:"Source Sans 3",system-ui,sans-serif;color:var(--ink);background:var(--ivory);line-height:1.6;font-size:18px}
+h1,h2,h3{font-family:"Libre Baskerville",Georgia,serif;line-height:1.15;margin:0;font-weight:700}
+h2{font-size:clamp(2rem,3.4vw,3rem);margin-bottom:.35em;color:var(--wine)}
+h2::before{content:"";display:block;width:56px;height:3px;background:var(--brass);margin-bottom:22px}
+h3{font-size:1.2rem;margin-bottom:.5em;color:var(--wine)}
 p{margin:0 0 1em}
-a{color:var(--navy)}
-a:focus-visible,.btn:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+a{color:var(--wine);text-decoration-color:var(--brass);text-underline-offset:3px}
+a:focus-visible,.btn:focus-visible{outline:3px solid var(--brass);outline-offset:3px}
 .wrap{max-width:1400px;margin:0 auto;padding:0 clamp(20px,4vw,56px)}
-nav{position:sticky;top:0;background:rgba(255,255,255,.96);border-bottom:1px solid var(--rule);z-index:10}
-nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
-nav .brand{font-family:"Libre Baskerville",serif;font-weight:700;text-decoration:none;color:var(--ink);font-size:1.05rem}
-nav ul{list-style:none;display:flex;gap:22px;margin:0;padding:0}
-nav a{text-decoration:none;color:var(--muted);font-weight:600;font-size:.95rem}
-nav a:hover{color:var(--navy)}
 
-/* hero: one compact band, portrait on the left, name and intro beside it */
-.hero{background:var(--navy-deep);color:#fff}
-.hero .inner{max-width:1400px;margin:0 auto;padding:44px clamp(20px,4vw,56px);display:grid;grid-template-columns:260px minmax(0,1fr);gap:clamp(28px,4vw,56px);align-items:center}
-.hero .photo{aspect-ratio:520/620;overflow:hidden;border-radius:3px}
+/* nav */
+nav{position:sticky;top:0;background:rgba(251,248,242,.97);border-bottom:1px solid var(--rule);z-index:10}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+nav .brand{font-family:"Libre Baskerville",serif;font-weight:700;text-decoration:none;color:var(--wine);font-size:1.1rem}
+nav ul{list-style:none;display:flex;gap:24px;margin:0;padding:0}
+nav a{text-decoration:none;color:var(--muted);font-weight:600;font-size:.95rem;padding:4px 0;border-bottom:2px solid transparent}
+nav a:hover{color:var(--wine);border-bottom-color:var(--brass)}
+
+/* hero */
+.hero{background:var(--wine);color:#fff}
+.hero .inner{max-width:1400px;margin:0 auto;padding:52px clamp(20px,4vw,56px);display:grid;grid-template-columns:250px minmax(0,1fr);gap:clamp(36px,5vw,72px);align-items:center}
+.hero .photo{position:relative}
+.hero .photo::after{content:"";position:absolute;inset:12px -12px -12px 12px;border:1px solid var(--brass);border-radius:2px;z-index:0}
+.hero .photo .frame{position:relative;z-index:1;aspect-ratio:520/620;overflow:hidden;border-radius:2px}
 .hero .photo img{width:100%;height:100%;object-fit:cover;display:block}
-.hero .school{color:#e3c9ce;font-size:1rem;margin-bottom:8px}
-.hero h1{font-size:clamp(2.6rem,4.6vw,4rem);color:#fff;letter-spacing:-.01em;margin-bottom:.25em}
-.hero p{font-size:clamp(1.05rem,1.3vw,1.2rem);max-width:40em;color:#f1e6e5;line-height:1.55;margin-bottom:.6em}
-.btn{display:inline-block;background:#fff;color:var(--navy-deep);text-decoration:none;padding:12px 20px;border-radius:4px;font-weight:700;margin:12px 10px 0 0}
-.btn.line{background:transparent;color:#fff;border:2px solid #fff}
-section .btn{background:var(--navy);color:#fff}
-section .btn.line{background:transparent;color:var(--navy);border-color:var(--navy)}
+.hero .school{color:var(--brass);font-size:1.02rem;font-weight:600;margin-bottom:10px}
+.hero h1{font-size:clamp(2.6rem,4.6vw,4.2rem);color:#fff;letter-spacing:-.01em;margin-bottom:.25em}
+.hero p{font-size:clamp(1.05rem,1.3vw,1.2rem);max-width:40em;color:#f3e5e3;line-height:1.6;margin-bottom:.6em}
+
+/* buttons */
+.btn{display:inline-block;text-decoration:none;padding:12px 22px;border-radius:2px;font-weight:700;margin:14px 10px 0 0;background:var(--wine);color:#fff;border:2px solid var(--wine)}
+.btn.line{background:transparent;color:var(--wine)}
+.btn:hover{background:var(--wine-deep);border-color:var(--wine-deep);color:#fff}
+.hero .btn,.dark .btn{background:var(--brass);border-color:var(--brass);color:var(--ink)}
+.hero .btn.line,.dark .btn.line{background:transparent;color:#fff;border-color:#fff}
+.hero .btn:hover,.dark .btn:hover{background:#d8b77c;border-color:#d8b77c;color:var(--ink)}
 
 /* stats */
-.stats{border-bottom:1px solid var(--rule)}
-.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
-.stat{padding:28px 24px 28px 0;border-right:1px solid var(--rule)}
-.stat+.stat{padding-left:24px}
+.stats{background:var(--ivory);border-bottom:1px solid var(--rule)}
+.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.stat{padding:30px 24px 30px 0;border-right:1px solid var(--rule)}
+.stat+.stat{padding-left:28px}
 .stat:last-child{border-right:0}
-.stat b{display:block;font-family:"Libre Baskerville",serif;font-size:3rem;color:var(--navy);line-height:1}
-.stat span{display:block;margin-top:8px;font-size:1rem;color:var(--muted);max-width:22em}
+.stat b{display:block;font-family:"Libre Baskerville",serif;font-size:3rem;color:var(--brass-deep);line-height:1}
+.stat span{display:block;margin-top:10px;font-size:1rem;color:var(--muted);max-width:22em}
 
-/* sections */
-section.block{padding:clamp(56px,7vw,96px) 0;border-bottom:1px solid var(--rule)}
-section.alt{background:var(--mist)}
-.head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:40px;align-items:end;margin-bottom:36px}
+/* sections and their colors */
+section.block{padding:clamp(60px,7vw,100px) 0}
+section.blush{background:var(--blush)}
+section.sage{background:var(--sage)}
+section.sage h2,section.sage h3{color:var(--green)}
+section.dark{background:var(--green);color:#eef3ef}
+section.dark h2{color:#fff}
+section.dark .lead{color:var(--green-soft)}
+section.dark .small{color:#b9cbc1}
+section.wine{background:var(--wine-deep);color:#f3e5e3}
+section.wine h2{color:#fff}
+section.wine a{color:#f1d9a6}
+.head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:48px;align-items:end;margin-bottom:40px}
 .head .lead{font-size:1.25rem;margin:0;max-width:44em}
-.cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:start}
+.cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:start}
 .text{max-width:64ch}
 .text p{font-size:1.1rem}
 ul.plain{list-style:none;padding:0;margin:0}
-ul.plain li{padding:12px 0;border-top:1px solid var(--rule)}
+ul.plain li{padding:13px 0 13px 22px;border-top:1px solid var(--rule);position:relative}
+ul.plain li::before{content:"";position:absolute;left:0;top:23px;width:8px;height:8px;background:var(--brass);transform:rotate(45deg)}
 ul.plain li:last-child{border-bottom:1px solid var(--rule)}
-.three{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
-.three>div{border-top:3px solid var(--navy);padding-top:18px}
-.three p{margin:0;font-size:1.05rem}
-.timeline{list-style:none;padding:0;margin:0}
-.timeline li{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:12px 0;border-top:1px solid var(--rule);font-size:1.05rem}
-.timeline li:last-child{border-bottom:1px solid var(--rule)}
-.timeline b{color:var(--navy);font-weight:700}
+section.sage ul.plain li{border-color:#cdd8cf}
+
+/* research panel */
+.panel{background:#fff;border:1px solid var(--rule);border-top:4px solid var(--wine);padding:28px 30px}
+
+/* video */
+.video-frame{border:1px solid var(--brass);padding:10px}
+.video{aspect-ratio:16/9;width:100%;border:0;display:block;background:#0f201b}
+
+/* BCYA timeline: a real sequence, drawn as one */
+.timeline{list-style:none;padding:0;margin:0;position:relative}
+.timeline::before{content:"";position:absolute;left:6px;top:8px;bottom:8px;width:2px;background:var(--brass)}
+.timeline li{position:relative;padding:0 0 22px 34px;font-size:1.05rem}
+.timeline li::before{content:"";position:absolute;left:0;top:7px;width:14px;height:14px;border-radius:50%;background:var(--blush);border:3px solid var(--wine)}
+.timeline b{display:block;color:var(--wine);font-weight:700;font-size:1rem;margin-bottom:2px}
+
 figure{margin:0}
-figure img{width:100%;height:100%;object-fit:cover;display:block;border-radius:3px}
-.ratio{aspect-ratio:3/2;overflow:hidden}
+figure img{width:100%;height:100%;object-fit:cover;display:block;border-radius:2px}
+.ratio{aspect-ratio:3/2;overflow:hidden;border-radius:2px}
 .ratio.tall{aspect-ratio:3/4}
 .ratio.wide{aspect-ratio:1200/940}
-figcaption{font-size:.95rem;color:var(--muted);margin-top:8px;line-height:1.45}
+figcaption{font-size:.95rem;color:var(--muted);margin-top:10px;line-height:1.45;padding-left:12px;border-left:2px solid var(--brass)}
 .pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.video{aspect-ratio:16/9;width:100%;border:0;display:block}
+.shift{margin-top:44px;padding-top:30px;border-top:1px solid var(--rule)}
+.shift h3{font-family:Georgia,'Times New Roman',serif;color:var(--wine);font-size:1.35rem;margin:0 0 8px}
+.shift p{max-width:860px;margin:0 0 18px}
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.trio .ratio{aspect-ratio:1180/790;background:#f3f0e9;border:1px solid var(--rule)}
+.trio img{object-fit:contain}
 .small{font-size:.95rem;color:var(--muted)}
-.honors{display:grid;grid-template-columns:repeat(2,1fr);gap:0 48px}
-.honors div{padding:18px 0;border-top:1px solid var(--rule)}
-.honors b{display:block;font-family:"Libre Baskerville",serif;font-size:1.1rem;margin-bottom:4px}
-.honors span{color:var(--muted)}
+
+/* finance: three colored columns */
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.three>div{background:#fff;border:1px solid var(--rule);padding:26px 26px 28px;border-top:5px solid var(--wine)}
+.three>div:nth-child(2){border-top-color:var(--green)}
+.three>div:nth-child(3){border-top-color:var(--brass)}
+.three>div:nth-child(2) h3{color:var(--green)}
+.three>div:nth-child(3) h3{color:var(--brass-deep)}
+.three p{margin:0;font-size:1.05rem}
+
+/* honors on wine */
+.honors{display:grid;grid-template-columns:repeat(2,1fr);gap:0 56px}
+.honors div{padding:20px 0;border-top:1px solid rgba(201,164,100,.45)}
+.honors b{display:block;font-family:"Libre Baskerville",serif;font-size:1.12rem;margin-bottom:6px;color:#fff}
+.honors span{color:#e6cfcb}
+
+/* contact */
 table.contact{border-collapse:collapse;font-size:1.1rem}
-table.contact td{padding:8px 28px 8px 0;vertical-align:top}
-footer{padding:32px 0;color:var(--muted);font-size:.95rem}
+table.contact td{padding:10px 32px 10px 0;vertical-align:top;border-bottom:1px solid var(--rule)}
+table.contact td:first-child{color:var(--wine);font-weight:700}
+footer{background:var(--wine);color:#e6cfcb;padding:26px 0;font-size:.95rem}
+
 @media (max-width:900px){
-  .hero .inner{grid-template-columns:1fr;padding-top:28px;padding-bottom:32px}.hero .photo{width:180px}
+  .hero .inner{grid-template-columns:1fr;padding-top:32px;padding-bottom:36px}.hero .photo{width:180px}
   .stats .wrap{grid-template-columns:1fr 1fr}.stat{border-right:0;padding:20px 0}.stat+.stat{padding-left:0}
-  .head,.cols,.three,.honors{grid-template-columns:1fr}.head{gap:12px}.cols{gap:32px}
-  .timeline li{grid-template-columns:1fr;gap:2px}
+  .head,.cols,.three,.honors,.trio{grid-template-columns:1fr}.head{gap:12px}.cols{gap:36px}
   nav ul{display:none}
 }
 </style>
@@ -108,13 +160,13 @@ footer{padding:32px 0;color:var(--muted);font-size:.95rem}
 </div></nav>
 
 <header class="hero" id="top"><div class="inner">
-  <div class="photo"><img src="assets/jade-portrait.jpg" alt="Jade Seo holding his Tri-M Music Honor Society certificate, Fort Lee High School"></div>
+  <div class="photo"><div class="frame"><img src="assets/jade-portrait.jpg" alt="Jade Seo holding his Tri-M Music Honor Society certificate, Fort Lee High School"></div></div>
   <div>
     <div class="school">Fort Lee High School, Class of 2027</div>
     <h1>Jade Seo</h1>
     <p>I study the business side of sport: who pays for the stadium, what a school owes its athletes, and how a plan gets from an email to a signed receipt. Sport management applicant, cofounder of the Bergen County Youth Assembly, varsity golf captain.</p>
     <a class="btn" href="#research">Read the research</a>
-    <a class="btn line" href="https://youtu.be/e59UKk2K4_g" target="_blank" rel="noopener">Watch Benched</a>
+    <a class="btn line" href="https://youtu.be/JOwXuE3KDhU" target="_blank" rel="noopener">Watch Benched</a>
   </div>
 </div></header>
 
@@ -128,19 +180,21 @@ footer{padding:32px 0;color:var(--muted);font-size:.95rem}
 <section class="block" id="research"><div class="wrap">
   <div class="head">
     <h2>Does hosting the Olympics pay off?</h2>
-    <p class="lead">I started this paper in eleventh grade sure that the answer was yes. Then I compared what host cities promised to spend with what they actually spent.</p>
+    <p class="lead">An independent research paper on whether the Olympics and the World Cup pay off for the countries that host them.</p>
   </div>
   <div class="cols">
     <div class="text">
-      <p>The paper looks at three things: projected versus actual budgets for past Olympic and World Cup hosts, what happens to the venues after the crowds leave, and the opportunity cost of the public money involved. A biostatistician at Johns Hopkins Hospital reviewed the draft and made me say exactly what my numbers could and could not prove. I am the sole author.</p>
+      <p>The paper looks at three things: projected versus actual budgets for past Olympic and World Cup hosts, what happens to the venues after the crowds leave, and the opportunity cost of the public money involved. I am the sole author; a biostatistician at Johns Hopkins Hospital reviewed the draft.</p>
       <p>The question I ended up with is the one I want to keep asking in college: not whether the games bring money in, but what else that money could have built.</p>
-      <a class="btn" href="assets/mega-events-paper.pdf" target="_blank" rel="noopener">Read the paper (PDF)</a>
+      <a class="btn" href="assets/mega-events-paper.pdf" target="_blank" rel="noopener">Read the paper (PDF)</a><a class="btn line" href="assets/mega-events-data.xlsx">Download the data (Excel)</a>
     </div>
-    <div>
+    <div class="panel">
       <h3>What the paper does</h3>
       <ul class="plain">
+        <li>Builds a dataset of 91 events, 1988 to 2025</li>
         <li>Compares projected and actual host budgets</li>
         <li>Tracks venue use after the event</li>
+        <li>Compares hosts’ GDP growth with the countries that bid and lost</li>
         <li>Weighs the opportunity cost of public spending</li>
         <li>Sole author, 2025 to 2026; reviewed by a Johns Hopkins Hospital biostatistician</li>
       </ul>
@@ -148,15 +202,15 @@ footer{padding:32px 0;color:var(--muted);font-size:.95rem}
   </div>
 </div></section>
 
-<section class="block alt" id="benched"><div class="wrap">
+<section class="block dark" id="benched"><div class="wrap">
   <div class="head">
     <h2>Benched: what happens to the college athletes who never go pro</h2>
     <p class="lead">A student documentary by Young Global Leaders of the East. It follows three former Division I athletes through the moment the dream of going pro ended.</p>
   </div>
   <div class="cols">
     <div>
-      <iframe class="video" src="https://www.youtube.com/embed/e59UKk2K4_g" title="Benched: What Happens to the College Athletes Who Never Go Pro" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe>
-      <p class="small" style="margin-top:10px">Released October 30, 2026. Anna Ross (Vanderbilt and Michigan women’s tennis), Julian Bell (Clemson women’s lacrosse), Spencer Joyner (Boston University men’s basketball).</p>
+      <div class="video-frame"><iframe class="video" src="https://www.youtube.com/embed/JOwXuE3KDhU" title="Benched: What Happens to the College Athletes Who Never Go Pro" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+      <p class="small" style="margin-top:14px">Released October 30, 2026; re-uploaded November 4, 2026. Anna Ross (Vanderbilt and Michigan women’s tennis), Julian Bell (Clemson women’s lacrosse), Spencer Joyner (Boston University men’s basketball).</p>
     </div>
     <div class="text">
       <p>I am the film’s Research and Policy Lead. I researched athletic scholarship structures, academic clustering (the way athletes get steered into certain majors), athlete welfare policy, and which schools already run programs for athletes after sport. I am drafting the policy brief that comes with the film: what every school should owe the people who play for it.</p>
@@ -165,7 +219,7 @@ footer{padding:32px 0;color:var(--muted);font-size:.95rem}
   </div>
 </div></section>
 
-<section class="block" id="bcya"><div class="wrap">
+<section class="block blush" id="bcya"><div class="wrap">
   <div class="head">
     <h2>Bergen County Youth Assembly</h2>
     <p class="lead">Six students from six Bergen County high schools built a countywide youth network. I am a cofounder, I direct the Community Needs Exchange, and I write the letters that go out under BCYA’s name.</p>
@@ -180,6 +234,7 @@ footer{padding:32px 0;color:var(--muted);font-size:.95rem}
         <li><b>October 9, 2026</b><span>I write to the New Jersey Commission for the Blind and Visually Impaired about a founder’s tactile graph plates for blind math students.</span></li>
         <li><b>October 16, 2026</b><span>The county forwards our proposal to the Interim Executive County Superintendent.</span></li>
         <li><b>October 28, 2026</b><span>The Commission meeting in Newark. I record their design requests and carry them back to the designer.</span></li>
+        <li><b>November 2026</b><span>I help redesign the plates, called ShiftBoard, using what I learned in 3D printing: I model the curve pieces, print and test prototypes, revise the board, and add the exponential and logarithmic graphs we told the Commission we were considering. We send the new examples to the Commission on November 9.</span></li>
       </ul>
       <a class="btn line" href="https://bcyouthassembly.org" target="_blank" rel="noopener">bcyouthassembly.org</a>
     </div>
@@ -197,9 +252,21 @@ footer{padding:32px 0;color:var(--muted);font-size:.95rem}
       </figure>
     </div>
   </div>
+  <div class="shift">
+    <h3>ShiftBoard, after the Commission meeting</h3>
+    <p>A blind student learns how a graph moves by feeling it. On ShiftBoard, each graph is a raised curve piece that fits into a board with tactile axes and braille labels, so a student can feel the same curve move, flip, or mirror. After the meeting, I modeled and 3D printed the curve pieces, revised the board itself, tested the prototypes, and added the exponential and logarithmic pair.</p>
+    <figure>
+      <div class="trio">
+        <div class="ratio"><img src="assets/shiftboard-01.jpg" alt="ShiftBoard example 1, up and down: the curves y = x squared and y = x squared minus 3 on the tactile board" loading="lazy"></div>
+        <div class="ratio"><img src="assets/shiftboard-04.jpg" alt="ShiftBoard example 4, flip: the curves y = negative x squared plus 3 and y = x squared minus 4 on the tactile board" loading="lazy"></div>
+        <div class="ratio"><img src="assets/shiftboard-08.jpg" alt="ShiftBoard example 8, inverse functions: y = 2 to the x and y = log base 2 of x, mirrored across the line y = x" loading="lazy"></div>
+      </div>
+      <figcaption>Three of the redesigned examples: moving a curve down (y = x² and y = x² − 3), flipping it (y = −x² + 3 and y = x² − 4), and the inverse functions y = 2<sup>x</sup> and y = log<sub>2</sub> x, mirrored across y = x.</figcaption>
+    </figure>
+  </div>
 </div></section>
 
-<section class="block alt" id="voy"><div class="wrap">
+<section class="block sage" id="voy"><div class="wrap">
   <div class="head">
     <h2>Voices of the Young</h2>
     <p class="lead">A student-run youth mental health organization. I am Director of Operations and Events, which means I handle the part where a plan has to clear a school district.</p>
@@ -244,7 +311,7 @@ footer{padding:32px 0;color:var(--muted);font-size:.95rem}
   </div>
 </div></section>
 
-<section class="block alt" id="honors"><div class="wrap">
+<section class="block wine" id="honors"><div class="wrap">
   <div class="head"><h2>Honors</h2></div>
   <div class="honors">
     <div><b>Scholastic Art &amp; Writing Awards, Gold Key</b><span>Critical Essay, Regional, 2026: “The Algorithm is the New Dictator.” <a href="assets/scholastic-gold-key.pdf" target="_blank" rel="noopener">Certificate</a></span></div>
@@ -259,11 +326,11 @@ footer{padding:32px 0;color:var(--muted);font-size:.95rem}
   <table class="contact">
     <tr><td><b>Email</b></td><td><a href="mailto:jayseo0925@gmail.com">jayseo0925@gmail.com</a></td></tr>
     <tr><td><b>Résumé</b></td><td><a href="assets/Jade_Seo_Resume.pdf" target="_blank" rel="noopener">Download (PDF)</a></td></tr>
-    <tr><td><b>Benched</b></td><td><a href="https://youtu.be/e59UKk2K4_g" target="_blank" rel="noopener">youtu.be/e59UKk2K4_g</a></td></tr>
+    <tr><td><b>Benched</b></td><td><a href="https://youtu.be/JOwXuE3KDhU" target="_blank" rel="noopener">youtu.be/JOwXuE3KDhU</a></td></tr>
     <tr><td><b>BCYA</b></td><td><a href="https://bcyouthassembly.org" target="_blank" rel="noopener">bcyouthassembly.org</a></td></tr>
   </table>
 </div></section>
 
-<footer><div class="wrap">Jade Seo, Fort Lee, New Jersey. Last updated October 2026.</div></footer>
+<footer><div class="wrap">Jade Seo, Fort Lee, New Jersey. Last updated November 2026.</div></footer>
 </body>
 </html>
